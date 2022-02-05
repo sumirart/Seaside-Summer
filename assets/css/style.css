@@ -1,15 +1,9 @@
 @import url("reset.css");
-
 /* ============== VARIABLE ============== */
 :root {
   --header-height: 3rem;
-
   /* ========= Colors ========= */
-  // We can change primary color based on what we like
-  // Then change the saturation and lightness in HSL
   --hue-color: 190;
-
-  // HSL color mode
   --first-color: hsl(var(--hue-color), 64%, 22%);
   --first-color-second: hsl(var(--hue-color), 64%, 22%);
   --first-color-alt: hsl(var(--hue-color), 64%, 15%);
@@ -21,7 +15,6 @@
   --white-color: #fff;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
-
   /* ========= Font and typography ========= */
   --body-font: "Open Sans", sans-serif;
   --title-font: "Raleway", sans-serif;
@@ -32,11 +25,9 @@
   --normal-font-size: 0.938rem;
   --small-font-size: 0.813rem;
   --smaller-font-size: 0.75rem;
-
   /* ========= Font weight ========= */
   --font-medium: 500;
   --font-semi-bold: 600;
-
   /* ========= Margenes bottom ========= */
   --mb-0-25: 0.25rem;
   --mb-0-5: 0.5rem;
@@ -46,18 +37,16 @@
   --mb-1-5: 1.5rem;
   --mb-2: 2rem;
   --mb-2-5: 2.5rem;
-
   /* ========= Z-index ========= */
   --z-tooltip: 10;
   --z-fixed: 100;
-
   /* ========= Hover overlay========= */
   --img-transition: 0.3s;
   --img-hidden: hidden;
   --img-scale: scale(1.1);
 }
 
-@media screen and(min-width: 968px) {
+@media screen and (min-width: 968px) {
   :root {
     --biggest-font-size: 4rem;
     --h1-font-size: 2.25rem;
@@ -118,14 +107,14 @@ input {
 /* ============== REUSABLE CSS CLASS ============== */
 .section {
   padding: 4.5rem 0 2.5rem;
+}
 
-  &__title {
-    font-size: var(--h2-font-size);
-    color: var(--title-color);
-    text-align: center;
-    text-transform: capitalize;
-    margin-bottom: var(--mb-2);
-  }
+.section__title {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: var(--mb-2);
 }
 
 .container {
@@ -134,6 +123,7 @@ input {
 }
 
 .grid {
+  display: -ms-grid;
   display: grid;
   gap: 1.5rem;
 }
@@ -151,68 +141,81 @@ input {
 /* ============== NAV ============== */
 .nav {
   height: var(--header-height);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
-  &__logo,
-  &__toggle {
-    color: var(--white-color);
+.nav__logo, .nav__toggle {
+  color: var(--white-color);
+}
+
+.nav__logo {
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__toggle {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.nav__menu {
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    background-color: var(--body-color);
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    -webkit-box-shadow: -1px 0 4px hsla(var(--hue-color), 64%, 15%, 0.15);
+            box-shadow: -1px 0 4px hsla(var(--hue-color), 64%, 15%, 0.15);
+    padding: 3rem;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
+}
 
-  &__logo {
-    font-weight: var(--font-semi-bold);
-  }
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 2.5rem;
+}
 
-  &__toggle {
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
+.nav__link {
+  color: var(--text-color-light);
+  font-weight: var(--font-semi-bold);
+  text-transform: uppercase;
+}
 
-  &__menu {
-    position: relative;
+.nav__link:hover {
+  color: var(--text-color);
+}
 
-    @media screen and (max-width: 767px) {
-      position: fixed;
-      background-color: var(--body-color);
-      top: 0;
-      right: -100%;
-      width: 70%;
-      height: 100%;
-      box-shadow: -1px 0 4px hsla(var(--hue-color), 64%, 15%, 0.15);
-      padding: 3rem;
-      transition: 0.5s;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2.5rem;
-  }
-
-  &__link {
-    color: var(--text-color-light);
-    font-weight: var(--font-semi-bold);
-    text-transform: uppercase;
-
-    &:hover {
-      color: var(--text-color);
-    }
-  }
-
-  &__close {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    color: var(--title-color);
-    cursor: pointer;
-  }
+.nav__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  cursor: pointer;
 }
 
 .show-menu {
   right: 0;
 }
-
-// https://youtu.be/YzRDHxbw1RU?list=PLezpB_lLJ4EALom4Pw0KkxHuPgiQ_Tbwp&t=1449
+/*# sourceMappingURL=style.css.map */
