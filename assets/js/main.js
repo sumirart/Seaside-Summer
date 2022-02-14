@@ -27,3 +27,37 @@ const linkAction = () => {
 };
 
 navLink.forEach((link) => link.addEventListener("click", linkAction));
+
+/* ============ CHANGE BACKGROUND HEADER ============ */
+const scrollHeader = (_) => {
+  const header = document.getElementById("header");
+  // when the scroll is greater than 100 viewport height, add scroll-header class to header
+  if (this.scrollY >= 100) {
+    header.classList.add("scroll-header");
+  } else {
+    header.classList.remove("scroll-header");
+  }
+};
+
+window.addEventListener("scroll", scrollHeader);
+
+/* ============ SWIPER DISCOVER ============ */
+const swiper = new Swiper(".discover__container", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  loop: true,
+  slidesPerView: "auto",
+  spaceBetween: 32,
+  coverflowEffect: {
+    rotate: 0,
+    // rotate: 50,
+    // stretch: 0,
+    // depth: 100,
+    // modifier: 1,
+    // slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});

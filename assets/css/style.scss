@@ -215,6 +215,17 @@ input {
   right: 0;
 }
 
+// change background header
+.scroll-header {
+  background-color: var(--body-color);
+  box-shadow: 0 0 4px hsla(var(--hue-color), 64%, 15%, 0.15);
+
+  .nav__logo,
+  .nav__toggle {
+    color: var(--title-color);
+  }
+}
+
 /* ============== HOME ============== */
 .home__img {
   position: absolute;
@@ -300,4 +311,131 @@ input {
   }
 }
 
-// https://youtu.be/YzRDHxbw1RU?list=PLezpB_lLJ4EALom4Pw0KkxHuPgiQ_Tbwp&t=2059
+/* ============== BUTTONS ============== */
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  font-weight: var(--font-semi-bold);
+  transform: 0.3s;
+
+  &:hover {
+    background-color: var(--first-color-alt);
+  }
+
+  &--flex {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+  }
+
+  &--link {
+    background: none;
+    padding: 0;
+
+    &--link:hover {
+      background: none;
+    }
+  }
+}
+
+/* ============== ABOUT ============== */
+.about {
+  &__container {
+    row-gap: 2.5rem;
+  }
+
+  &__data {
+    text-align: center;
+  }
+
+  &__description {
+    margin-bottom: var(--mb-2);
+  }
+
+  &__img {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    &-overlay {
+      overflow: var(--img-hidden);
+    }
+
+    &-one {
+      width: 130px;
+    }
+
+    &-two {
+      width: 180px;
+    }
+
+    &-one,
+    &-two {
+      transition: var(--img-transition);
+
+      &:hover {
+        transform: var(--img-scale);
+      }
+    }
+  }
+}
+
+/* ============== DISCOVER ============== */
+.discover {
+  &__card {
+    position: relative;
+    width: 200px;
+    overflow: var(--img-hidden);
+  }
+
+  &__img {
+    transition: var(--img-transition);
+
+    &:hover {
+      transform: var(--img-scale);
+    }
+  }
+
+  &__data {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+  }
+
+  &__title,
+  &__description {
+    color: var(--white-color);
+  }
+
+  &__title {
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-0-25);
+  }
+
+  &__description {
+    display: block;
+    font-size: var(--smaller-font-size);
+  }
+}
+
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right {
+  background-image: none;
+}
+
+/* ============== EXPERIENCE ============== */
+.experience {
+  &__container {
+    row-gap: 2.5rem;
+    justify-content: center;
+    justify-items: center;
+  }
+}
+
+/* ============== VIDEO ============== */
+/* ============== PLACES ============== */
+/* ============== SUBSCRIBE ============== */
+/* ============== SPONSORS ============== */
