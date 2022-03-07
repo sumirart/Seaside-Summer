@@ -11,6 +11,10 @@ Link for the tutorial: [Responsive Travel Website Design Using HTML CSS and Java
 - Animation
 - Mobile first
 
+### Live version:
+
+[Seaside Summer](https://happy-leavitt-1b9517.netlify.app/)
+
 ### Screenshot:
 
 ![Screenshot Seaside Summer - Main page desktop version](Screenshot.png)
